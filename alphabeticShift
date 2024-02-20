@@ -1,0 +1,24 @@
+// Given a string, your task is to replace each of its characters by the next one in the English alphabet;
+// i.e. replace a with b, replace b with c, etc (z would be replaced by a).
+
+CODE:
+
+function solution(inputString) {
+  let result = '';
+  
+  for (let i = 0; i < inputString.length; i++) {
+    let currentCharCode = inputString.charCodeAt(i);
+    
+    if (currentCharCode >= 97 && currentCharCode < 122) {
+      let nextCharCode = currentCharCode + 1;
+      let nextChar = String.fromCharCode(nextCharCode);
+      result += nextChar;
+    } else if (currentCharCode === 122) {
+      result += 'a';
+    } else {
+      result += inputString[i];
+    }
+  }
+  
+  return result;
+}
