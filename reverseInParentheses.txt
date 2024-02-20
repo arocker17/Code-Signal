@@ -1,0 +1,26 @@
+// Write a function that reverses characters in (possibly nested) parentheses in the input string.
+// Input strings will always be well-formed with matching ()s.
+
+CODE:
+
+function solution(inputString) {
+  let stack = [];
+  let result = '';
+
+  for (let char of inputString) {
+    if (char === ')') {
+      let reversedSubstring = '';
+
+      while (stack.length && stack[stack.length - 1] !== '(') {
+        reversedSubstring += stack.pop();
+      }
+
+      stack.pop(); // Remove the opening parenthesis '('
+      stack.push(...reversedSubstring);
+    } else {
+      stack.push(char);
+    }
+  }
+
+  return stack.join('');
+}

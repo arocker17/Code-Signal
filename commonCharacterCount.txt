@@ -1,0 +1,20 @@
+// Given two strings, find the number of common characters between them.
+
+CODE:
+
+function solution(s1, s2) {
+  let commonCount = 0;
+  let str2 = s2.split("");
+
+  for (let i = 0; i < s1.length; i++) {
+    const currentChar = s1.charAt(i);
+    const index = str2.indexOf(currentChar);
+
+    if (index !== -1) {
+      commonCount++;
+      str2.splice(index, 1);
+    }
+  }
+
+  return commonCount;
+}

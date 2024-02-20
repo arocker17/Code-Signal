@@ -1,0 +1,21 @@
+// Given an array of strings, return another array containing all of its longest strings.
+
+CODE:
+
+function solution(inputArray) {
+  let maxLength = 0;
+  let result = [];
+
+  for (let i = 0; i < inputArray.length; i++) {
+    const currentLength = inputArray[i].length;
+    maxLength = Math.max(maxLength, currentLength);
+  }
+
+  for (let i = 0; i < inputArray.length; i++) {
+    if (inputArray[i].length === maxLength) {
+      result.push(inputArray[i]);
+    }
+  }
+
+  return result;
+}

@@ -1,0 +1,10 @@
+// JavaScript code
+// Given the string, check if it is a palindrome.
+
+CODE:
+
+function solution(inputString) {
+  const cleanedString = inputString.replace(/[^A-Za-z0-9_]/g, '').toLowerCase();
+  
+  return cleanedString === cleanedString.split('').reverse().join('');
+}
