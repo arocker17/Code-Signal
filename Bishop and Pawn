@@ -1,0 +1,18 @@
+// Given the positions of a white bishop and a black pawn on the standard chess board, determine whether the bishop can capture the pawn in one move.
+// The bishop has no restrictions in distance for each move, but is limited to diagonal movement.
+
+CODE:
+
+function solution(bishop, pawn) {
+  const bishopX = bishop.charCodeAt(0) - 96; 
+  const bishopY = parseInt(bishop[1]); 
+
+  const pawnX = pawn.charCodeAt(0) - 96; 
+  const pawnY = parseInt(pawn[1]); 
+
+  if (Math.abs(bishopX - pawnX) === Math.abs(bishopY - pawnY)) {
+    return true;
+  }
+
+  return false;
+}
