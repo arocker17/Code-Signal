@@ -1,0 +1,8 @@
+// Given a string, find the number of different characters in it.
+
+CODE:
+
+function solution(s) {
+  const uniqueChars = new Set(s);
+  return uniqueChars.size;
+}
