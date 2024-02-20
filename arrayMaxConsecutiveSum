@@ -1,0 +1,21 @@
+// Given array of integers, find the maximal possible sum of some of its "k" consecutive elements.
+
+CODE:
+
+function solution(inputArray, k) {
+  let maxSum = 0;
+
+  for (let i = 0; i <= inputArray.length - k; i++) {
+    let currentSum = 0;
+    
+    for (let j = 0; j < k; j++) {
+      currentSum += inputArray[i + j];
+    }
+
+    if (currentSum > maxSum) {
+      maxSum = currentSum;
+    }
+  }
+
+  return maxSum;
+}
