@@ -1,0 +1,27 @@
+// Let's define digit degree of some positive integer as the number of times
+// we need to replace this number with the sum of its digits until we get to a one digit number.
+// Given an integer, find its digit degree.
+
+CODE:
+
+function solution(n) {
+  let degree = 0;
+
+  while (n >= 10) {
+    n = digitSum(n);
+    degree++;
+  }
+
+  return degree;
+}
+
+function digitSum(num) {
+  let sum = 0;
+
+  while (num > 0) {
+    sum += num % 10;
+    num = Math.floor(num / 10);
+  }
+
+  return sum;
+}
