@@ -1,0 +1,7 @@
+// Given array of integers, remove each "k^th" element from it.
+
+CODE:
+
+function solution(inputArray, k) {
+  return inputArray.filter((_, index) => (index + 1) % k !== 0);
+}
