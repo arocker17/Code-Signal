@@ -1,0 +1,16 @@
+// Check if the given string is a correct time representation of the 24-hour clock.
+
+CODE:
+
+function solution(time) {
+    const [hours, minutes] = time.split(':');
+    const numericHours = parseInt (hours, 10);
+    const numericMinutes = parseInt(minutes, 10);
+    
+    if (isNaN(numericHours) || isNaN(numericMinutes)) {
+        return false;
+    }
+    
+    return numericHours >= 0 && numericHours <= 23 && numericMinutes >= 0 && numericMinutes <= 59;
+
+}
