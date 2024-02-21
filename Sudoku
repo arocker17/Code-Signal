@@ -1,0 +1,53 @@
+// Sudoku is a number-placement puzzle. The objective is to fill a 9 × 9 grid with digits so that each column,
+// each row, and each of the nine 3 × 3 sub-grids that compose the grid contains all of the digits from 1 to 9.
+// This algorithm should check if the given grid of numbers represents a correct solution to Sudoku.
+
+CODE:
+
+const { isValid } = require("ipaddr.js");
+
+function solution(grid) {
+    for (let row = 0; row < 9; row++) {
+        if (!isValidSet(grid[row])) {
+            return false;
+        }
+    }
+    
+    for (let col = 0; col < 9; col++) {
+        const column = [];
+        for (let row = 0; row < 9; row++) {
+            column.push(grid[row][col]);
+        }
+        if (!isValidSet(column)) {
+            return false;
+        }
+    }
+    
+    for (let startRow = 0; startRow < 9; startRow +=3) {
+        for (let startCol = 0; startCol < 9; startCol += 3) {
+            const subGrid = [];
+            for ( let row = startRow; row < startRow + 3; row++) {
+                for (let col = startCol; col < startCol + 3; col++) {
+                    subGrid.push(grid[row][col]);
+                }
+            }
+            if (!isValidSet(subGrid)) {
+                return false;
+            }
+        }
+    }
+    
+    return true;
+}
+
+function isValidSet(nums) {
+    const seen = new Set();
+    for (const num of nums) {
+        if (num < 1 || num > 9 || seen.has(num)) {
+            return false;
+        }
+        
+        seen.add(num);
+    }
+    return true;
+}
