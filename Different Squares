@@ -1,0 +1,23 @@
+// Given a rectangular matrix containing only digits, calculate the number of different 2 × 2 squares in it.
+
+CODE:
+
+function solution(matrix) {
+    const rows = matrix.length;
+    const cols = matrix[0].length;
+    const uniqueSquares = new Set();
+    
+    for (let i = 0; i < rows - 1; i++) {
+        for (let j = 0; j < cols - 1; j++) {
+            const square = [
+                matrix[i][j],
+                matrix[i][j + 1],
+                matrix[i + 1][j],
+                matrix[i + 1][j + 1]
+            ];
+            uniqueSquares.add(square.join(''));
+        }
+    }
+    
+    return uniqueSquares.size;
+}
