@@ -1,0 +1,33 @@
+// Given an integer product, find the smallest positive (i.e. greater than 0) integer the product of whose digits is equal to product. If there is no such integer, return -1 instead.
+
+CODE:
+
+function solution(product) {
+  if (product === 0) {
+    return 10; 
+  }
+
+  let currentNumber = 1;
+
+  while (currentNumber <= 9 * product) {
+    const digitsProduct = getProductOfDigits(currentNumber);
+
+    if (digitsProduct === product) {
+      return currentNumber;
+    }
+
+    currentNumber++;
+  }
+
+  return -1;
+}
+
+function getProductOfDigits(number) {
+  let product = 1;
+  while (number !== 0) {
+    const digit = number % 10;
+    product *= digit;
+    number = Math.floor(number / 10);
+  }
+  return product;
+}
