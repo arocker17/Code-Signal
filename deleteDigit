@@ -1,0 +1,19 @@
+// Given some integer, find the maximal number you can obtain by deleting exactly one digit of the given number.
+
+CODE:
+
+function solution(n) {
+    const numString = String(n);
+    const numLength = numString.length;
+    let maxNumber = -Infinity;
+    
+    for (let i = 0; i < numLength; i++) {
+        const numberWithoutDigit = parseInt(numString.slice(0, i) + numString.slice(i + 1));
+        if (numberWithoutDigit > maxNumber) {
+            maxNumber = numberWithoutDigit;
+        }
+    }
+    
+    return maxNumber;
+
+}
